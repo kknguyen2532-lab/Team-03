@@ -32,3 +32,6 @@ def merge_sort(arr):
         j += 1
 
     return result
+
+numbers = [5, 2, 8, 1, 3]
+print(merge_sort(numbers))
