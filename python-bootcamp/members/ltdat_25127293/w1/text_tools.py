@@ -1,15 +1,18 @@
-import string 
-from collections import Counter
+import string
 
 def word_count(text: str) -> dict[str, int]:
-    clean_text = text.lower()
-    for p in string.punctuation:
-        clean_text = clean_text.replace(p, " ")
+    """Count the occurrences of each word in the text (lower-case, ignoring punctuation)."""
+    translator = str.maketrans("", "", string.punctuation)
+    cleaned_text = text.translate(translator).lower()
+    words = cleaned_text.split()
+    counts = {}
+    for word in words:
+        counts[word] = counts.get(word, 0) + 1
 
-    words = clean_text.split()
-    counts = Counter(words)
-    return dict(sorted(counts.item(), key = lambda x: (-x[1], x[0])))
+    return counts
 
-def top_k(text: str, k: int) -> list[tuple[str,int]]:
+def top_k(text: str, k: int) -> list[tuple[str, int]]:
+    """Return top k most frequent words sorted by count descending, then alphabetically ascending."""
     counts = word_count(text)
-    return list(counts.items())[:k]
+    sorted_words = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
+    return sorted_words[:k]
