@@ -6,8 +6,8 @@ def by_day(timetable: list[tuple[str,str]]) -> dict[str, list[str]]:
       result[day] = []
 
     result[day].append(course)
-  for day in result:
-    result[day].sort()
+  for day, courses in result.items():
+    courses.sort()
   return result
 
 print(by_day([
