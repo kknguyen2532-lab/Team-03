@@ -26,3 +26,5 @@ def summary(scores: list[float]) -> dict:
         "mean": mean_score,
         "median": median_score
     }
+
+print(summary([7.5,9,6,8]))
