@@ -1,4 +1,4 @@
-import string 
+import string
 from collections import Counter
 
 def word_count(text: str) -> dict[str, int]:
