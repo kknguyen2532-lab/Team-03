@@ -1,5 +1,6 @@
 from statistics import median
 
+
 def summary(scores: list[float]) -> dict:
   minimum = min(scores)
   maximum = max(scores)
