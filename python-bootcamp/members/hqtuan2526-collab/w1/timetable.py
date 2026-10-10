@@ -8,10 +8,11 @@ def by_day(courses):
 
         result[day].append(course)
 
-    for day in result:
-        result[day].sort()
+    for day, course_list in result.items():
+        course_list.sort()
 
     return result
+
 
 
 courses = [
