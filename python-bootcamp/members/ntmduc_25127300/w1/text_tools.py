@@ -1,6 +1,7 @@
 import string
 from collections import Counter
 
+
 def word_count(text: str) -> dict[str, int]:
     clean_text = text.lower()
     for p in string.punctuation:
