@@ -1,5 +1,6 @@
 from translate import binary_search
 
+
 def test_binary_search_found_middle():
     """Kiểm tra tìm thấy phần tử ở giữa danh sách."""
     arr = [1, 3, 5, 7, 9]
