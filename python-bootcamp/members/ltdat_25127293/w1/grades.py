@@ -1,4 +1,4 @@
-def summary(scores:list[float]) -> dict:
+def summary(scores: list[float]) -> dict:
     if not scores:
         raise ValueError("Danh sách rỗng")
 
@@ -10,14 +10,8 @@ def summary(scores:list[float]) -> dict:
     mean_val = round(sum(sorted_score) / n, 2)
 
     if n % 2 == 1:
-        median_val = sorted_score[n//2]
+        median_val = sorted_score[n // 2]
     else:
-        median_val = round((sorted_score[n//2-1] + sorted_score[n//2])/2, 2)
+        median_val = round((sorted_score[n // 2 - 1] + sorted_score[n // 2]) / 2, 2)
 
-    return{
-        "min": min_val,
-        "max": max_val,
-        "mean": mean_val,
-        "median": median_val
-
-    }
+    return {"min": min_val, "max": max_val, "mean": mean_val, "median": median_val}

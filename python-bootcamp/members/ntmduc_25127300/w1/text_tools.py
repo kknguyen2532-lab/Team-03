@@ -9,8 +9,9 @@ def word_count(text: str) -> dict[str, int]:
 
     words = clean_text.split()
     counts = Counter(words)
-    return dict(sorted(counts.items(), key = lambda x: (-x[1], x[0])))
+    return dict(sorted(counts.items(), key=lambda x: (-x[1], x[0])))
 
-def top_k(text: str, k: int) -> list[tuple[str,int]]:
+
+def top_k(text: str, k: int) -> list[tuple[str, int]]:
     counts = word_count(text)
     return list(counts.items())[:k]

@@ -1,4 +1,3 @@
-
 def summary(scores: list[float]) -> dict:
     if len(scores) == 0:
         raise ValueError("scores must not be empty")
@@ -24,7 +23,8 @@ def summary(scores: list[float]) -> dict:
         "min": min_score,
         "max": max_score,
         "mean": mean_score,
-        "median": median_score
+        "median": median_score,
     }
 
-print(summary([7.5,9,6,8]))
+
+print(summary([7.5, 9, 6, 8]))

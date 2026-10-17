@@ -9,9 +9,7 @@ def transpose(matrix: list[list[int]]) -> list[list[int]]:
 
     return list(zip(*matrix))
 
-matrix = [
-    [1, 2, 3],
-    [4, 5, 6]
-]
+
+matrix = [[1, 2, 3], [4, 5, 6]]
 
 print(transpose(matrix))
