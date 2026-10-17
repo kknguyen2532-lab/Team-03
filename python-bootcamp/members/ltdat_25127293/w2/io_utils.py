@@ -1,34 +1,43 @@
 import csv
 import json
 from datetime import datetime
-from typing import List
+
 from .models import Task
 
-def load_tasks(path: str) -> List[Task]:
+
+def load_tasks(path: str) -> list[Task]:
     tasks = []
-    with open(path, mode='r', encoding='utf-8') as f:
+    with open(path, mode="r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
-        for line_no, row in enumerate(reader, start=2): # Dòng 1 là header
+        for line_no, row in enumerate(reader, start=2):  # Dòng 1 là header
             try:
-                title = row['title'].strip()
-                importance = int(row['importance'])
-                effort_h = float(row['effort_h'])
-                deadline = datetime.strptime(row['deadline'].strip(), '%Y-%m-%d').date()
-                
-                task = Task(title=title, importance=importance, effort_h=effort_h, deadline=deadline)
+                title = row["title"].strip()
+                importance = int(row["importance"])
+                effort_h = float(row["effort_h"])
+                deadline = datetime.strptime(row["deadline"].strip(), "%Y-%m-%d").date()
+
+                task = Task(
+                    title=title,
+                    importance=importance,
+                    effort_h=effort_h,
+                    deadline=deadline,
+                )
                 tasks.append(task)
             except (ValueError, KeyError, AttributeError) as e:
                 raise ValueError(f"Invalid row at line {line_no}: {e}")
     return tasks
 
-def save_json(tasks: List[Task], path: str) -> None:
+
+def save_json(tasks: list[Task], path: str) -> None:
     data = []
     for t in tasks:
-        data.append({
-            "title": t.title,
-            "importance": t.importance,
-            "effort_h": t.effort_h,
-            "deadline": t.deadline.isoformat()
-        })
-    with open(path, mode='w', encoding='utf-8') as f:
+        data.append(
+            {
+                "title": t.title,
+                "importance": t.importance,
+                "effort_h": t.effort_h,
+                "deadline": t.deadline.isoformat(),
+            }
+        )
+    with open(path, mode="w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
