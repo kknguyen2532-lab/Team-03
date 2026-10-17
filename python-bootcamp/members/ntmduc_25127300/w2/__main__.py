@@ -1,5 +1,7 @@
 import os
+
 from .io_utils import load_tasks
+
 
 def main():
     sample_path = os.path.join(os.path.dirname(__file__), "sample.csv")

@@ -1,7 +1,9 @@
 import csv
 import json
 from datetime import date
+
 from .models import Task
+
 
 def load_tasks(path: str) -> list[Task]:
     tasks = []
@@ -32,15 +34,13 @@ def load_tasks(path: str) -> list[Task]:
 
     return tasks
 
-    def save_json(task: list[Task], path: str) -> None:
-        data = []
-        for t in tasks:
-            data.append({
-            "title": t.title,
-            "importance": t.importance,
-            "effort_h": t.effort_h,
-            "deadline": t.deadline.isoformat() 
-        })
-        
-    with open(path, mode='w', encoding='utf-8') as file:
+def save_json(tasks: list[Task], path: str) -> None:
+    data = [
+        {
+            # Các trường của Task cần lưu
+        }
+        for task in tasks
+    ]
+
+    with open(path, mode="w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
