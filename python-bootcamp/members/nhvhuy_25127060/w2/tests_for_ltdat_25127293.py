@@ -1,4 +1,3 @@
-import pytest
 from translate import binary_search
 
 def test_binary_search_found_middle():
