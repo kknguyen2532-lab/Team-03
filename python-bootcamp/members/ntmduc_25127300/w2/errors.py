@@ -10,6 +10,7 @@ class InfeasiblePlan(Exception):
     def __str__(self) -> str:
         return f"Infeasible plan: Needed {self.needed_h}h, but only {self.available_h}h available."
 
+
 def check_feasible(tasks: list[Task], available_h: float) -> None:
     needed_h = sum(task.effort_h for task in tasks)
     if needed_h > available_h:

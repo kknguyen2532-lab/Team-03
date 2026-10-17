@@ -1,4 +1,3 @@
-
 def by_day(courses):
     result = {}
 
@@ -14,11 +13,6 @@ def by_day(courses):
     return result
 
 
-
-courses = [
-    ("CSC10014", "Mon"),
-    ("MTH00003", "Tue"),
-    ("CSC10001", "Mon")
-]
+courses = [("CSC10014", "Mon"), ("MTH00003", "Tue"), ("CSC10001", "Mon")]
 
 print(by_day(courses))

@@ -1,4 +1,4 @@
-#Maximum Subarray Sum
+# Maximum Subarray Sum
 def max_subarray_sum(arr: list[int]) -> int:
     if not arr:
         raise ValueError("Input list must not be empty")

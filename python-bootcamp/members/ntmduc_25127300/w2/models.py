@@ -13,7 +13,6 @@ class Task:
         if not 1 <= self.importance <= 5:
             raise ValueError("importance must be 1-5")
 
-    def day_left(self, today:date) -> int:
+    def day_left(self, today: date) -> int:
         delta_day = (self.deadline - today).days
         return max(0, delta_day)
-

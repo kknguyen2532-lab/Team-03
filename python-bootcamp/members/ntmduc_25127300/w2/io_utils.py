@@ -7,13 +7,12 @@ from .models import Task
 
 def load_tasks(path: str) -> list[Task]:
     tasks = []
-    with open(path, mode='r', encoding = 'utf-8') as file:
+    with open(path, mode="r", encoding="utf-8") as file:
         reader = csv.reader(file)
 
         header = next(reader, None)
         if header is None:
             return tasks
-
 
     for line_num, row in enumerate(reader, 2):
         if len(row) < 4:
@@ -26,13 +25,16 @@ def load_tasks(path: str) -> list[Task]:
             eff = float(effort_str)
             dl = date.fromisoformat(deadline_str.strip())
 
-            task = Task(title = title_str.split(), importance=imp, effort_h=eff, deadline=dl)
+            task = Task(
+                title=title_str.split(), importance=imp, effort_h=eff, deadline=dl
+            )
             tasks.append(task)
 
         except (ValueError, TypeError) as e:
             raise ValueError(f"Line {line_num}: Invalid data values ({e})")
 
     return tasks
+
 
 def save_json(tasks: list[Task], path: str) -> None:
     data = [

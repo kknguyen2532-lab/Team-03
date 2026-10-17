@@ -5,7 +5,7 @@ from .io_utils import load_tasks
 
 def main():
     sample_path = os.path.join(os.path.dirname(__file__), "sample.csv")
-    
+
     if not os.path.exists(sample_path):
         with open(sample_path, "w", encoding="utf-8") as f:
             f.write("title,importance,effort_h,deadline\n")
@@ -20,6 +20,7 @@ def main():
             print(f"  {idx}. {task}")
     except Exception as e:  # noqa: BLE001
         print(f"Lỗi: {e}")
+
 
 if __name__ == "__main__":
     main()

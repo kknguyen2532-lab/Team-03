@@ -1,14 +1,11 @@
-
 def merge_sort(arr):
 
     if len(arr) <= 1:
         return arr[:]
 
-
     mid = len(arr) // 2
     left = merge_sort(arr[:mid])
     right = merge_sort(arr[mid:])
-
 
     result = []
     i = 0
@@ -22,7 +19,6 @@ def merge_sort(arr):
             result.append(right[j])
             j += 1
 
-
     while i < len(left):
         result.append(left[i])
         i += 1
@@ -32,6 +28,7 @@ def merge_sort(arr):
         j += 1
 
     return result
+
 
 numbers = [5, 2, 8, 1, 3]
 print(merge_sort(numbers))
