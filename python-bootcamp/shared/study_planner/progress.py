@@ -5,10 +5,10 @@
 def completion_rate(total: int, completed: int) -> float:
     """Return the completion rate as a percentage."""
     if not isinstance(total, int) or isinstance(total, bool):
-        raise ValueError("total must be a non-negative integer")
+        raise TypeError("total must be a non-negative integer")
 
     if not isinstance(completed, int) or isinstance(completed, bool):
-        raise ValueError("completed must be a non-negative integer")
+        raise TypeError("completed must be a non-negative integer")
 
     if total < 0:
         raise ValueError("total must be non-negative")
