@@ -20,11 +20,11 @@ class Task:
         ):
             raise ValueError("importance must be 1-5")
         if not isinstance(self.effort_h, (int, float)) or isinstance(self.effort_h, bool):
-            raise ValueError("effort_h must be a number")
+            raise TypeError("effort_h must be a number")
         if self.effort_h < 0:
             raise ValueError("effort_h must be non-negative")
         if not isinstance(self.deadline, date):
-            raise ValueError("deadline must be a datetime.date")
+            raise TypeError("deadline must be a datetime.date")
 
     def days_left(self, today: date) -> int:
         return max((self.deadline - today).days, 0)

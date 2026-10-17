@@ -1,9 +1,9 @@
 import csv
 import json
 import math
+from collections.abc import Iterable
 from datetime import date
 from pathlib import Path
-from typing import Iterable
 
 from .models import Task
 
