@@ -7,6 +7,7 @@ from datetime import date
 
 @dataclass
 class Task:
+    """Represent a task in the study planner."""
     """A study task read from a CSV file."""
 
     title: str
@@ -17,6 +18,7 @@ class Task:
 
 @dataclass
 class Block:
+    """Represent a scheduled block of study time."""
     """A task and the amount of time allocated to it."""
 
     task: Task
