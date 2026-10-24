@@ -7,6 +7,7 @@ from datetime import date
 from pathlib import Path
 
 import pytest
+
 from shared.study_planner.allocate import allocate
 from shared.study_planner.parse import parse_csv
 from shared.study_planner.prioritise import prioritise
@@ -45,7 +46,7 @@ def test_pipeline_end_to_end(sample_csv: Path) -> None:
     assert len(blocks) > 0
     assert sum(block.hours for block in blocks) <= available_hours
 
-    # 4. Render output string (chi truyen duy nhat blocks)
+    # 4. Render output string
     output = render(blocks)
     assert isinstance(output, str)
     assert len(output) > 0
@@ -53,6 +54,9 @@ def test_pipeline_end_to_end(sample_csv: Path) -> None:
 
 def test_cli_execution_end_to_end(sample_csv: Path) -> None:
     """Verify end-to-end invocation via Python CLI module."""
+    # Xác định chính xác thư mục python-bootcamp dù chạy từ bất kỳ đâu
+    project_root = Path(__file__).resolve().parents[1]
+
     cmd = [
         sys.executable,
         "-m",
@@ -65,7 +69,7 @@ def test_cli_execution_end_to_end(sample_csv: Path) -> None:
     ]
 
     env = os.environ.copy()
-    env["PYTHONPATH"] = "."
+    env["PYTHONPATH"] = str(project_root)
     env["PYTHONIOENCODING"] = "utf-8"
     env["PYTHONUTF8"] = "1"
 
@@ -75,6 +79,7 @@ def test_cli_execution_end_to_end(sample_csv: Path) -> None:
         text=True,
         check=False,
         env=env,
+        cwd=str(project_root),
         encoding="utf-8",
     )
 
