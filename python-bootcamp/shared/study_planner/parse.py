@@ -1,6 +1,7 @@
 import csv
 from datetime import date
 from pathlib import Path
+
 from shared.contract import Task
 
 
