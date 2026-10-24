@@ -1,4 +1,3 @@
-
 """W2-4: Tests for hqtuan2526-collab's W1-4."""
 
 import importlib.util
@@ -9,16 +8,11 @@ from types import ModuleType
 def load_translate_module() -> ModuleType:
     """Load the reviewee's W1-4 module."""
     w1_dir = (
-        Path(__file__).resolve().parents[3]
-        / "members"
-        / "hqtuan2526-collab"
-        / "w1"
+        Path(__file__).resolve().parents[3] / "members" / "hqtuan2526-collab" / "w1"
     )
     file_path = w1_dir / "translate.py"
 
-    spec = importlib.util.spec_from_file_location(
-        "reviewee_translate", file_path
-    )
+    spec = importlib.util.spec_from_file_location("reviewee_translate", file_path)
     if spec is None or spec.loader is None:
         raise ImportError(f"Cannot load module: {file_path}")
 

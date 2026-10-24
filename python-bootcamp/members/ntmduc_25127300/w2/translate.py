@@ -1,4 +1,3 @@
-
 def max_subarray_sum(numbers: list[int]) -> int:
     """Return the maximum sum of a non-empty contiguous subarray."""
     if not numbers:

@@ -10,7 +10,9 @@ def main() -> None:
     try:
         tasks = load_tasks(sample_path)
     except (OSError, ValueError) as exc:
-        raise SystemExit(f"Could not load sample tasks at {sample_path}: {exc}") from exc
+        raise SystemExit(
+            f"Could not load sample tasks at {sample_path}: {exc}"
+        ) from exc
 
     for task in tasks:
         print(

@@ -1,4 +1,3 @@
-
 """Greedy allocation of study hours to tasks."""
 
 from shared.contract import Block, Task
@@ -30,9 +29,7 @@ def allocate(tasks: list[Task], hours: float) -> list[Block]:
 
         allocated = min(task.effort_h, remaining)
 
-        blocks.append(
-            Block(task=task, hours=allocated)
-        )
+        blocks.append(Block(task=task, hours=allocated))
         remaining -= allocated
 
     return blocks

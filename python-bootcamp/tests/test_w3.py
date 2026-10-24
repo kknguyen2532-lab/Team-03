@@ -6,7 +6,7 @@ from pathlib import Path
 import pytest
 
 BOOTCAMP = Path(__file__).resolve().parents[1]
-TODAY = date(2026, 10, 6)   # a Tuesday
+TODAY = date(2026, 10, 6)  # a Tuesday
 
 
 def test_w3_1_parse_due(load):
@@ -15,7 +15,7 @@ def test_w3_1_parse_due(load):
     assert d.parse_due("tomorrow", TODAY) == date(2026, 10, 7)
     assert d.parse_due("in 3 days", TODAY) == date(2026, 10, 9)
     assert d.parse_due("Fri", TODAY) == date(2026, 10, 9)
-    assert d.parse_due("Tue", TODAY) == date(2026, 10, 13)   # next occurrence, not today
+    assert d.parse_due("Tue", TODAY) == date(2026, 10, 13)  # next occurrence, not today
     with pytest.raises(ValueError):
         d.parse_due("someday", TODAY)
 

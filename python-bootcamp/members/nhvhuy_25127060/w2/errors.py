@@ -1,5 +1,5 @@
-
 # members/<your_id>/w2/errors.py
+
 
 class InfeasiblePlan(Exception):
     def __init__(self, needed_h: float, available_h: float):

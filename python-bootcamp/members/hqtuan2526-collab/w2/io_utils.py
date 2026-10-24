@@ -1,4 +1,3 @@
-
 import csv
 import json
 from datetime import date
@@ -33,15 +32,13 @@ def load_tasks(path) -> list[Task]:
                     title=title,
                     importance=importance,
                     effort_h=effort_h,
-                    deadline=deadline
+                    deadline=deadline,
                 )
 
                 tasks.append(task)
 
             except (ValueError, TypeError, KeyError) as error:
-                raise ValueError(
-                    f"line {line_number}: invalid task data"
-                ) from error
+                raise ValueError(f"line {line_number}: invalid task data") from error
 
     return tasks
 
@@ -50,12 +47,14 @@ def save_json(tasks: list[Task], path) -> None:
     data = []
 
     for task in tasks:
-        data.append({
-            "title": task.title,
-            "importance": task.importance,
-            "effort_h": task.effort_h,
-            "deadline": task.deadline.isoformat()
-        })
+        data.append(
+            {
+                "title": task.title,
+                "importance": task.importance,
+                "effort_h": task.effort_h,
+                "deadline": task.deadline.isoformat(),
+            }
+        )
 
     with open(path, "w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=2)

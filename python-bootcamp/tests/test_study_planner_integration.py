@@ -12,6 +12,7 @@ from shared.study_planner.render import render
 
 TODAY = date(2026, 10, 24)
 
+
 @pytest.fixture
 def sample_tasks():
     """Create sample tasks for integration tests."""

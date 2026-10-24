@@ -1,4 +1,3 @@
-
 import argparse
 import importlib
 import sys
@@ -36,9 +35,7 @@ def main() -> int:
 
     try:
         # The member folder contains a hyphen, so load W2 dynamically.
-        io_utils = importlib.import_module(
-            "members.hqtuan2526-collab.w2.io_utils"
-        )
+        io_utils = importlib.import_module("members.hqtuan2526-collab.w2.io_utils")
         tasks = io_utils.load_tasks(csv_path)
     except FileNotFoundError:
         print(f"Error: file not found: {csv_path}", file=sys.stderr)

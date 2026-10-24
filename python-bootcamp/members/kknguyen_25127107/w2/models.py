@@ -4,7 +4,6 @@ from datetime import date
 
 @dataclass
 class Task:
-
     title: str
     importance: int
     effort_h: float
@@ -19,7 +18,9 @@ class Task:
             or not 1 <= self.importance <= 5
         ):
             raise ValueError("importance must be 1-5")
-        if not isinstance(self.effort_h, (int, float)) or isinstance(self.effort_h, bool):
+        if not isinstance(self.effort_h, (int, float)) or isinstance(
+            self.effort_h, bool
+        ):
             raise TypeError("effort_h must be a number")
         if self.effort_h < 0:
             raise ValueError("effort_h must be non-negative")
