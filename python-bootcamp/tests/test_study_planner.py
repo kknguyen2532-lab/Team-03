@@ -1,13 +1,13 @@
+# ruff: noqa: I001
 """End-to-end tests for the study_planner pipeline."""
 
 import os
+from pathlib import Path
 import subprocess
 import sys
 from datetime import date
-from pathlib import Path
 
 import pytest
-
 from shared.study_planner.allocate import allocate
 from shared.study_planner.parse import parse_csv
 from shared.study_planner.prioritise import prioritise
