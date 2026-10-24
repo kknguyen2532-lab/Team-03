@@ -1,10 +1,10 @@
 """End-to-end tests for the study_planner pipeline."""
 
-from datetime import date
-from pathlib import Path
 import os
 import subprocess
 import sys
+from datetime import date
+from pathlib import Path
 
 import pytest
 

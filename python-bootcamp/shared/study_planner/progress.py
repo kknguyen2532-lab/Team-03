@@ -1,4 +1,3 @@
-
 """Utilities for tracking study progress."""
 
 

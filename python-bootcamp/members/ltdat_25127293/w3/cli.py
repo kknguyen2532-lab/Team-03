@@ -1,9 +1,9 @@
 """Command line interface for task study planner."""
 
 import argparse
+import sys
 from datetime import date
 from pathlib import Path
-import sys
 
 
 def parse_args(args: list[str] | None = None) -> argparse.Namespace:

@@ -1,4 +1,3 @@
-
 class InfeasiblePlan(Exception):
     def __init__(self, needed_h: float, available_h: float):
         self.needed_h = needed_h

@@ -1,7 +1,7 @@
 """Date parsing utility using standard library datetime."""
 
-from datetime import date, timedelta
 import re
+from datetime import date, timedelta
 
 WEEKDAYS = {
     "mon": 0,

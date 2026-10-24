@@ -1,7 +1,7 @@
 """Chat log analysis utility computing request counts and p95 latencies."""
 
-from collections import Counter, defaultdict
 import math
+from collections import Counter, defaultdict
 from typing import Any
 
 

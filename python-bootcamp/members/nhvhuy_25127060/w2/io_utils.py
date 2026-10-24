@@ -1,4 +1,3 @@
-
 import csv
 import json
 from datetime import date
@@ -34,9 +33,7 @@ def load_tasks(path) -> list[Task]:
                 tasks.append(task)
 
             except (ValueError, TypeError, AttributeError) as exc:
-                raise ValueError(
-                    f"Invalid row at line {line_number}: {exc}"
-                ) from exc
+                raise ValueError(f"Invalid row at line {line_number}: {exc}") from exc
 
     return tasks
 

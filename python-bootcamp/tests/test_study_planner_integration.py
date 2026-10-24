@@ -4,6 +4,7 @@ import csv
 from datetime import date
 
 import pytest
+
 from shared.contract import Task
 from shared.study_planner.allocate import allocate
 from shared.study_planner.parse import parse_csv
@@ -11,6 +12,7 @@ from shared.study_planner.prioritise import prioritise
 from shared.study_planner.render import render
 
 TODAY = date(2026, 10, 24)
+
 
 @pytest.fixture
 def sample_tasks():
