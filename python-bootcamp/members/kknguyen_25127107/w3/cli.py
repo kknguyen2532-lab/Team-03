@@ -1,12 +1,12 @@
 import argparse
-from datetime import date
 import math
-from pathlib import Path
 import sys
+from datetime import date
+from pathlib import Path
 
+from members.kknguyen_25127107.w2.errors import InfeasiblePlan
 from members.kknguyen_25127107.w2.io_utils import load_tasks
 from shared.study_planner.allocate import allocate
-from members.kknguyen_25127107.w2.errors import InfeasiblePlan
 from shared.study_planner.prioritise import prioritise
 from shared.study_planner.render import render
 
