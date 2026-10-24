@@ -1,5 +1,7 @@
 from datetime import date
+
 from shared.contract import Task
+
 
 def prioritise(tasks: list[Task], today: date) -> list[Task]:
     def calculate_score(task: Task) -> float:

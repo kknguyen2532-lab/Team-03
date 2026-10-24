@@ -2,9 +2,9 @@
 """Command-line entry point for the shared study planner."""
 
 import argparse
+import sys
 from datetime import date
 from pathlib import Path
-import sys
 
 from shared.study_planner.allocate import allocate
 from shared.study_planner.parse import parse_csv
