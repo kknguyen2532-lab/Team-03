@@ -4,7 +4,6 @@ import csv
 from datetime import date
 
 import pytest
-
 from shared.contract import Task
 from shared.study_planner.allocate import allocate
 from shared.study_planner.parse import parse_csv
