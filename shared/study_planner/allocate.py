@@ -1,4 +1,4 @@
-from shared.contract import Task, Block
+from shared.contract import Block, Task
 from shared.study_planner.errors import InfeasiblePlan
 
 
