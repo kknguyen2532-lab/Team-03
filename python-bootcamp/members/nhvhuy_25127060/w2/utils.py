@@ -1,3 +1,5 @@
+"""CSV and JSON I/O utilities for tasks (W2-2)."""
+
 import csv
 import json
 from dataclasses import asdict
@@ -8,7 +10,8 @@ from .models import Task
 
 
 def load_tasks(path: str | Path) -> list[Task]:
-    tasks = []
+    """Load tasks from a CSV file and validate each row."""
+    tasks: list[Task] = []
 
     with open(path, "r", encoding="utf-8", newline="") as file:
         reader = csv.DictReader(file)
@@ -34,7 +37,6 @@ def load_tasks(path: str | Path) -> list[Task]:
                     raise ValueError("effort_h must be non-negative")
 
                 tasks.append(task)
-
             except (ValueError, TypeError, KeyError) as exc:
                 raise ValueError(f"Invalid data at line {line_number}: {exc}") from exc
 
@@ -42,8 +44,8 @@ def load_tasks(path: str | Path) -> list[Task]:
 
 
 def save_json(tasks: list[Task], path: str | Path) -> None:
+    """Serialize a list of Task objects to a JSON file."""
     data = []
-
     for task in tasks:
         item = asdict(task)
         item["deadline"] = task.deadline.isoformat()
