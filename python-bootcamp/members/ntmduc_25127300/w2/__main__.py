@@ -4,6 +4,13 @@ from .io_utils import load_tasks
 
 
 def main():
+    """
+    Điểm khởi chạy chính của chương trình.
+    
+    Hàm này tự động tạo một file dữ liệu mẫu (sample.csv) với các task mặc định 
+    nếu file chưa tồn tại. Sau đó, tiến hành đọc dữ liệu từ file này và in 
+    danh sách các task ra màn hình.
+    """
     sample_path = os.path.join(os.path.dirname(__file__), "sample.csv")
 
     if not os.path.exists(sample_path):
