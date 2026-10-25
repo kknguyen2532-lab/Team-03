@@ -1,12 +1,14 @@
 from dataclasses import dataclass
 from datetime import date
 
+
 @dataclass
 class Task:
     title: str
     importance: int
     effort_h: float
     deadline: date
+
 
 @dataclass
 class Block:

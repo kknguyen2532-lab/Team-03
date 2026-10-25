@@ -26,11 +26,13 @@ def load_tasks(path: str) -> list[Task]:
         if header is None:
             return tasks
 
-        # Lưu ý: Tôi đã đưa vòng lặp for này vào trong khối `with open` 
+        # Lưu ý: Tôi đã đưa vòng lặp for này vào trong khối `with open`
         # để tránh lỗi "I/O operation on closed file" khi đọc file.
         for line_num, row in enumerate(reader, 2):
             if len(row) < 4:
-                raise ValueError(f"Line {line_num}: Invalid row format, expected 4 columns")
+                raise ValueError(
+                    f"Line {line_num}: Invalid row format, expected 4 columns"
+                )
 
             title_str, importance_str, effort_str, deadline_str = row
 

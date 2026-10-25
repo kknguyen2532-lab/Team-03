@@ -1,8 +1,8 @@
 def max_subarray_sum(numbers: list[int]) -> int:
     """
     Tìm tổng lớn nhất của một mảng con liên tiếp (contiguous subarray) không rỗng.
-    
-    Sử dụng thuật toán Kadane để duyệt qua danh sách và tìm tổng lớn nhất 
+
+    Sử dụng thuật toán Kadane để duyệt qua danh sách và tìm tổng lớn nhất
     với độ phức tạp thời gian O(n).
 
     Args:
