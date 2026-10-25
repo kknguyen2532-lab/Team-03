@@ -1,35 +1,16 @@
-"""Greedy allocation of study hours to tasks."""
-
 from shared.contract import Block, Task
+from shared.study_planner.errors import InfeasiblePlan
 
 
 def allocate(tasks: list[Task], hours: float) -> list[Block]:
-    """Allocate available hours by importance, then deadline."""
-    if hours <= 0 or not tasks:
-        return []
+    total_effort = sum(task.effort_h for task in tasks)
 
-    ordered_tasks = sorted(
-        enumerate(tasks),
-        key=lambda item: (
-            -item[1].importance,
-            item[1].deadline,
-            item[0],
-        ),
-    )
+    if total_effort > hours:
+        raise InfeasiblePlan(
+            f"Kế hoạch không khả thi: Cần {total_effort}h nhưng chỉ có {hours}h."
+        )
 
-    blocks: list[Block] = []
-    remaining = hours
-
-    for _, task in ordered_tasks:
-        if remaining <= 0:
-            break
-
-        if task.effort_h <= 0:
-            continue
-
-        allocated = min(task.effort_h, remaining)
-
-        blocks.append(Block(task=task, hours=allocated))
-        remaining -= allocated
-
+    blocks = []
+    for task in tasks:
+        blocks.append(Block(task=task, hours=task.effort_h))
     return blocks
