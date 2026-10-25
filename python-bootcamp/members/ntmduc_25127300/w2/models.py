@@ -7,6 +7,7 @@ class Task:
     """
     Lớp (dataclass) đại diện cho một công việc hoặc nhiệm vụ học tập.
     """
+
     title: str
     importance: int
     effort_h: float
@@ -15,7 +16,7 @@ class Task:
     def __post_init__(self):
         """
         Tự động kiểm tra tính hợp lệ của dữ liệu ngay sau khi khởi tạo đối tượng.
-        
+
         Raises:
             ValueError: Nếu mức độ quan trọng (importance) không nằm trong khoảng 1-5.
         """

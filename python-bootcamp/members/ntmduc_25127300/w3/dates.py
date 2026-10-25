@@ -31,17 +31,17 @@ def parse_due(text: str, today: date) -> date:
             days = int(text_lower[3:-5].strip())
             return today + timedelta(days=days)
         except ValueError:
-            pass 
+            pass
 
     weekdays = {"mon": 0, "tue": 1, "wed": 2, "thu": 3, "fri": 4, "sat": 5, "sun": 6}
     if text_lower in weekdays:
         target_wd = weekdays[text_lower]
         current_wd = today.weekday()
-        
+
         days_ahead = target_wd - current_wd
         if days_ahead <= 0:
             days_ahead += 7
-            
+
         return today + timedelta(days=days_ahead)
 
     try:

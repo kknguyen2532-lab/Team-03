@@ -15,12 +15,15 @@ def validate_and_load_tasks(file_path_str: str, available_hours: float):
 
     try:
         tasks = parse_csv(file_path)
-    except Exception as e: #noqa: BLE001
+    except Exception as e:  # noqa: BLE001
         print(f"Lỗi khi đọc file CSV: {e}", file=sys.stderr)
         sys.exit(1)
 
     if not tasks:
-        print(f"Lỗi: File '{file_path}' rỗng hoặc không có task nào hợp lệ.", file=sys.stderr)
+        print(
+            f"Lỗi: File '{file_path}' rỗng hoặc không có task nào hợp lệ.",
+            file=sys.stderr,
+        )
         sys.exit(1)
 
     try:

@@ -4,7 +4,6 @@ from .io_utils import load_tasks
 
 
 def main():
-
     current_dir = os.path.dirname(__file__)
     csv_path = os.path.join(current_dir, "sample.csv")
 

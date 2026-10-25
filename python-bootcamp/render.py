@@ -1,4 +1,3 @@
-
 from typing import Any
 
 
@@ -15,8 +14,7 @@ def render(blocks: list[Any]) -> str:
             deadline = block.get("deadline", "Không có")
 
             lines.append(
-                f"{idx}. [Task] {title} | "
-                f"Thời lượng: {effort}h | Hạn chót: {deadline}"
+                f"{idx}. [Task] {title} | Thời lượng: {effort}h | Hạn chót: {deadline}"
             )
         elif hasattr(block, "title") and hasattr(block, "effort_h"):
             lines.append(

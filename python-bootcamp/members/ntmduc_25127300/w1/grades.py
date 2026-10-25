@@ -6,7 +6,7 @@ def summary(scores: list[float]) -> dict:
         scores (list[float]): Danh sách các điểm số cần thống kê.
 
     Returns:
-        dict: Từ điển chứa các giá trị bao gồm nhỏ nhất ("min"), lớn nhất ("max"), 
+        dict: Từ điển chứa các giá trị bao gồm nhỏ nhất ("min"), lớn nhất ("max"),
               trung bình ("mean") và trung vị ("median").
 
     Raises:

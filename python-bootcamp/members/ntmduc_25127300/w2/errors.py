@@ -3,9 +3,10 @@ from .models import Task
 
 class InfeasiblePlan(Exception):
     """
-    Ngoại lệ (Exception) tùy chỉnh được ném ra khi tổng thời gian cần thiết 
+    Ngoại lệ (Exception) tùy chỉnh được ném ra khi tổng thời gian cần thiết
     để hoàn thành các task vượt quá số giờ khả dụng.
     """
+
     def __init__(self, needed_h: float, available_h: float):
         self.needed_h = needed_h
         self.available_h = available_h

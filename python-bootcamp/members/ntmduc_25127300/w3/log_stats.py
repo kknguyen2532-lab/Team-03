@@ -3,7 +3,7 @@ from collections import Counter, defaultdict
 
 def analyse(pairs: list[tuple[str, int]]) -> dict:
     """
-    Phân tích dữ liệu độ trễ của các route, tính toán số lượt gọi, 
+    Phân tích dữ liệu độ trễ của các route, tính toán số lượt gọi,
     độ trễ bách phân vị thứ 95 (p95) và xác định route chậm nhất.
 
     Args:
@@ -27,18 +27,14 @@ def analyse(pairs: list[tuple[str, int]]) -> dict:
     p95 = {}
     for route, lats in latencies_by_route.items():
         sorted_lats = sorted(lats)
-        
+
         index = int(0.95 * len(sorted_lats))
-        
+
         if index >= len(sorted_lats):
             index = len(sorted_lats) - 1
-            
+
         p95[route] = sorted_lats[index]
 
     slowest = max(p95, key=p95.get)
 
-    return {
-        "counts": dict(counts),
-        "p95": p95,
-        "slowest": slowest
-    }
+    return {"counts": dict(counts), "p95": p95, "slowest": slowest}
