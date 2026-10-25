@@ -1,9 +1,9 @@
 """Command-line interface for the personal study planner (W3-3)."""
 
 import argparse
+import sys
 from datetime import date
 from pathlib import Path
-import sys
 
 from ..w2.io_utils import load_tasks  # Đổi thành ..w2.utils nếu bạn giữ tên utils.py
 from ..w2.models import Task
@@ -18,9 +18,7 @@ def prioritise_tasks(tasks: list[Task], today: date) -> list[Task]:
     )
 
 
-def allocate_hours(
-    tasks: list[Task], available_h: float
-) -> list[tuple[Task, float]]:
+def allocate_hours(tasks: list[Task], available_h: float) -> list[tuple[Task, float]]:
     """Greedily allocate available hours across prioritised tasks."""
     remaining = available_h
     plan: list[tuple[Task, float]] = []

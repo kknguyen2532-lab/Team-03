@@ -1,9 +1,9 @@
 """CSV and JSON I/O utilities for tasks (W2-2)."""
 
 import csv
+import json
 from dataclasses import asdict
 from datetime import date
-import json
 from pathlib import Path
 
 from .models import Task
@@ -23,8 +23,7 @@ def load_tasks(path: str | Path) -> list[Task]:
         for line_number, row in enumerate(reader, start=2):
             try:
                 if None in row or any(
-                    row.get(key) is None or not row[key].strip()
-                    for key in required
+                    row.get(key) is None or not row[key].strip() for key in required
                 ):
                     raise ValueError("missing or extra fields")
 
@@ -39,9 +38,7 @@ def load_tasks(path: str | Path) -> list[Task]:
 
                 tasks.append(task)
             except (ValueError, TypeError, KeyError) as exc:
-                raise ValueError(
-                    f"Invalid data at line {line_number}: {exc}"
-                ) from exc
+                raise ValueError(f"Invalid data at line {line_number}: {exc}") from exc
 
     return tasks
 

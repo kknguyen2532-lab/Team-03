@@ -1,8 +1,8 @@
 """Chat log latency analysis utilities for Week 3 homework (W3-2)."""
 
+import math
 from collections import Counter, defaultdict
 from collections.abc import Iterable
-import math
 from typing import Any
 
 
@@ -28,8 +28,7 @@ def analyse(pairs: Iterable[tuple[str, float]]) -> dict[str, Any]:
         raise ValueError("pairs cannot be empty")
 
     p95: dict[str, float] = {
-        route: _percentile_95(lats)
-        for route, lats in latencies_by_route.items()
+        route: _percentile_95(lats) for route, lats in latencies_by_route.items()
     }
     slowest: str = max(p95, key=lambda r: p95[r])
 
