@@ -1,4 +1,17 @@
 def summary(scores: list[float]) -> dict:
+    """
+    Tính toán các chỉ số thống kê cơ bản từ danh sách điểm số.
+
+    Args:
+        scores (list[float]): Danh sách các điểm số cần thống kê.
+
+    Returns:
+        dict: Từ điển chứa các giá trị bao gồm nhỏ nhất ("min"), lớn nhất ("max"), 
+              trung bình ("mean") và trung vị ("median").
+
+    Raises:
+        ValueError: Nếu danh sách điểm số đầu vào rỗng.
+    """
     if not scores:
         raise ValueError("Danh sách rỗng")
 
